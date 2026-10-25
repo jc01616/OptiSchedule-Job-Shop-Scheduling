@@ -1,0 +1,210 @@
+{
+  "main_dataset": {
+    "jobs": 8,
+    "machines": 4,
+    "operations": 24,
+    "total_workload": 65,
+    "machine_loads": {
+      "0": 16,
+      "1": 18,
+      "2": 13,
+      "3": 18
+    },
+    "theoretical_lower_bound": 18
+  },
+  "cpsat": {
+    "label": "CP-SAT Optimal",
+    "status": "OPTIMAL",
+    "makespan": 18,
+    "obj_bound": 18,
+    "optimality_gap": 0.0,
+    "runtime_sec": 0.0183,
+    "branches": 0,
+    "conflicts": 0,
+    "theoretical_lb_match": true,
+    "optimality_statement": "Exact mathematical optimality (0.0% gap) proven strictly for this 8-job, 4-machine deterministic synthetic instance under non-preemptive assumptions without sequence-dependent setup times."
+  },
+  "flowshop_2m": {
+    "dataset": "FLOWSHOP_2M_DATA (6 jobs, 2 machines)",
+    "johnson_order": [
+      5,
+      0,
+      2,
+      3,
+      4,
+      1
+    ],
+    "johnson_makespan": 31,
+    "fcfs_makespan": 34,
+    "reverse_makespan": 35,
+    "violations": 0,
+    "comparison_table": [
+      {
+        "Sequence Method": "Johnson's Algorithm (Optimal)",
+        "Job Order": "['J5', 'J0', 'J2', 'J3', 'J4', 'J1']",
+        "Makespan (min)": 31,
+        "vs FCFS (%)": 8.82,
+        "vs Worst/Reverse (%)": 11.43,
+        "Machine A Util (%)": 93.55,
+        "Machine B Util (%)": 87.1,
+        "Optimality Status": "PROVEN OPTIMAL (Johnson 1954)"
+      },
+      {
+        "Sequence Method": "FCFS (Arrival Order)",
+        "Job Order": "['J0', 'J1', 'J2', 'J3', 'J4', 'J5']",
+        "Makespan (min)": 34,
+        "vs FCFS (%)": 0.0,
+        "vs Worst/Reverse (%)": 2.86,
+        "Machine A Util (%)": 85.29,
+        "Machine B Util (%)": 79.41,
+        "Optimality Status": "Suboptimal Baseline"
+      },
+      {
+        "Sequence Method": "Reverse Order",
+        "Job Order": "['J5', 'J4', 'J3', 'J2', 'J1', 'J0']",
+        "Makespan (min)": 35,
+        "vs FCFS (%)": -2.94,
+        "vs Worst/Reverse (%)": 0.0,
+        "Machine A Util (%)": 82.86,
+        "Machine B Util (%)": 77.14,
+        "Optimality Status": "Suboptimal Sequence"
+      }
+    ]
+  },
+  "flowshop_3m": {
+    "dataset": "FLOWSHOP_3M_DATA (5 jobs, 3 machines)",
+    "dominance_info": {
+      "min_A": 5,
+      "max_B": 3,
+      "min_C": 4,
+      "condition_1_satisfied": true,
+      "condition_2_satisfied": true,
+      "is_exact_optimal": true,
+      "classification": "EXACT_OPTIMUM",
+      "explanation": "Condition 1 (min A >= max B: 5 >= 3) is True; Condition 2 (min C >= max B: 4 >= 3) is True. Dominance holds: Johnson reduction is mathematically proven optimal."
+    },
+    "johnson_order": [
+      3,
+      2,
+      4,
+      0,
+      1
+    ],
+    "johnson_makespan": 42,
+    "fcfs_makespan": 45,
+    "reverse_makespan": 42,
+    "violations": 0,
+    "comparison_table": [
+      {
+        "Sequence Method": "Johnson 3M Reduction",
+        "Job Order": "['J3', 'J2', 'J4', 'J0', 'J1']",
+        "Makespan (min)": 42,
+        "vs FCFS (%)": 6.67,
+        "vs Worst/Reverse (%)": 0.0,
+        "Machine A Util (%)": 83.33,
+        "Machine B Util (%)": 26.19,
+        "Machine C Util (%)": 71.43,
+        "Classification": "PROVEN OPTIMAL (Dominance Verified)"
+      },
+      {
+        "Sequence Method": "FCFS (Arrival Order)",
+        "Job Order": "['J0', 'J1', 'J2', 'J3', 'J4']",
+        "Makespan (min)": 45,
+        "vs FCFS (%)": 0.0,
+        "vs Worst/Reverse (%)": -7.14,
+        "Machine A Util (%)": 77.78,
+        "Machine B Util (%)": 24.44,
+        "Machine C Util (%)": 66.67,
+        "Classification": "Suboptimal Baseline"
+      },
+      {
+        "Sequence Method": "Reverse Order",
+        "Job Order": "['J4', 'J3', 'J2', 'J1', 'J0']",
+        "Makespan (min)": 42,
+        "vs FCFS (%)": 6.67,
+        "vs Worst/Reverse (%)": 0.0,
+        "Machine A Util (%)": 83.33,
+        "Machine B Util (%)": 26.19,
+        "Machine C Util (%)": 71.43,
+        "Classification": "Optimal Alternative for This Instance"
+      }
+    ]
+  },
+  "scenarios": {
+    "A_makespan": 18,
+    "A_violations": 0,
+    "B_makespan": 25,
+    "B_violations": 0,
+    "B_discrete_rounding_explanation": "math.ceil(duration * 1.15) increases each M1 operation by +1 min, raising total M1 workload from 18 to 25 min (+38.89% aggregate load growth). Validated against modified scenario data with 0 violations."
+  },
+  "violations_total": 0,
+  "violations_list": [],
+  "main_jobshop_comparison": [
+    {
+      "Method": "FCFS",
+      "Makespan(min)": 55,
+      "vs FCFS(%)": 0.0,
+      "Avg Lateness(min)": 12.38,
+      "Avg Tard(min)": 13.38,
+      "Max Tard(min)": 39.0,
+      "% Tardy": 62.5,
+      "Avg Util(%)": 29.55,
+      "Throughput(jobs/hr)": 8.73
+    },
+    {
+      "Method": "SPT",
+      "Makespan(min)": 43,
+      "vs FCFS(%)": 21.82,
+      "Avg Lateness(min)": 5.75,
+      "Avg Tard(min)": 7.5,
+      "Max Tard(min)": 20.0,
+      "% Tardy": 50.0,
+      "Avg Util(%)": 37.79,
+      "Throughput(jobs/hr)": 11.16
+    },
+    {
+      "Method": "LPT",
+      "Makespan(min)": 40,
+      "vs FCFS(%)": 27.27,
+      "Avg Lateness(min)": 8.5,
+      "Avg Tard(min)": 11.38,
+      "Max Tard(min)": 24.0,
+      "% Tardy": 75.0,
+      "Avg Util(%)": 40.62,
+      "Throughput(jobs/hr)": 12.0
+    },
+    {
+      "Method": "EDD",
+      "Makespan(min)": 48,
+      "vs FCFS(%)": 12.73,
+      "Avg Lateness(min)": 7.5,
+      "Avg Tard(min)": 8.25,
+      "Max Tard(min)": 23.0,
+      "% Tardy": 75.0,
+      "Avg Util(%)": 33.85,
+      "Throughput(jobs/hr)": 10.0
+    },
+    {
+      "Method": "Palmer Heuristic (Job-Shop)",
+      "Makespan(min)": 46,
+      "vs FCFS(%)": 16.36,
+      "Avg Lateness(min)": 8.25,
+      "Avg Tard(min)": 10.12,
+      "Max Tard(min)": 34.0,
+      "% Tardy": 50.0,
+      "Avg Util(%)": 35.33,
+      "Throughput(jobs/hr)": 10.43
+    },
+    {
+      "Method": "CP-SAT Optimal",
+      "Makespan(min)": 18,
+      "vs FCFS(%)": 67.27,
+      "Avg Lateness(min)": -2.25,
+      "Avg Tard(min)": 0.75,
+      "Max Tard(min)": 3.0,
+      "% Tardy": 25.0,
+      "Avg Util(%)": 90.28,
+      "Throughput(jobs/hr)": 26.67
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Sequence Method,Job Order,Makespan (min),vs FCFS (%),vs Worst/Reverse (%),Machine A Util (%),Machine B Util (%),Machine C Util (%),Classification
+Johnson 3M Reduction,"['J3', 'J2', 'J4', 'J0', 'J1']",42,6.67,0.0,83.33,26.19,71.43,PROVEN OPTIMAL (Dominance Verified)
+FCFS (Arrival Order),"['J0', 'J1', 'J2', 'J3', 'J4']",45,0.0,-7.14,77.78,24.44,66.67,Suboptimal Baseline
+Reverse Order,"['J4', 'J3', 'J2', 'J1', 'J0']",42,6.67,0.0,83.33,26.19,71.43,Optimal Alternative for This Instance

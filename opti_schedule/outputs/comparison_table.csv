@@ -1,0 +1,7 @@
+Method,Makespan (min),vs Baseline (%),Avg Lateness (min),Avg Tardiness (min),Max Tardiness (min),% Tardy Jobs,Avg Util (%),Throughput (jobs/hr)
+FCFS,55,0.0,12.38,13.38,39.0,62.5,29.55,8.73
+SPT,43,21.82,5.75,7.5,20.0,50.0,37.79,11.16
+LPT,40,27.27,8.5,11.38,24.0,75.0,40.62,12.0
+EDD,48,12.73,7.5,8.25,23.0,75.0,33.85,10.0
+Palmer Heuristic (Job-Shop),46,16.36,8.25,10.12,34.0,50.0,35.33,10.43
+CP-SAT Optimal,18,67.27,-2.25,0.75,3.0,25.0,90.28,26.67

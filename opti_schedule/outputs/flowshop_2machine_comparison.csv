@@ -1,0 +1,4 @@
+Sequence Method,Job Order,Makespan (min),vs FCFS (%),vs Worst/Reverse (%),Machine A Util (%),Machine B Util (%),Optimality Status
+Johnson's Algorithm (Optimal),"['J5', 'J0', 'J2', 'J3', 'J4', 'J1']",31,8.82,11.43,93.55,87.1,PROVEN OPTIMAL (Johnson 1954)
+FCFS (Arrival Order),"['J0', 'J1', 'J2', 'J3', 'J4', 'J5']",34,0.0,2.86,85.29,79.41,Suboptimal Baseline
+Reverse Order,"['J5', 'J4', 'J3', 'J2', 'J1', 'J0']",35,-2.94,0.0,82.86,77.14,Suboptimal Sequence
