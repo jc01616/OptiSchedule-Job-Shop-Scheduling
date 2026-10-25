@@ -1,0 +1,47 @@
+
+name: OptiSchedule Python Validation
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check Python syntax
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+
+          excluded = {".git", ".venv", "venv", "__pycache__"}
+          files = [
+              p for p in Path(".").rglob("*.py")
+              if not any(part in excluded for part in p.parts)
+          ]
+
+          if not files:
+              raise SystemExit("No Python files found.")
+
+          for file in files:
+              ast.parse(file.read_text(encoding="utf-8"), filename=str(file))
+              print(f"Syntax OK: {file}")
+
+          print(f"Validated {len(files)} Python files.")
+          PY
