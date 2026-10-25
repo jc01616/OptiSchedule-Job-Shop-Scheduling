@@ -1,5 +1,5 @@
 
-name: OptiSchedule Python Validation
+name: OptiSchedule Project Validation
 
 on:
   push:
@@ -24,24 +24,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Check Python syntax
+      - name: Install dependencies
         run: |
-          python - <<'PY'
-          import ast
-          from pathlib import Path
+          python -m pip install --upgrade pip
+          python -m pip install -r opti_schedule/requirements.txt
 
-          excluded = {".git", ".venv", "venv", "__pycache__"}
-          files = [
-              p for p in Path(".").rglob("*.py")
-              if not any(part in excluded for part in p.parts)
-          ]
+      - name: Validate example
+        working-directory: opti_schedule
+        run: python -B validate_example.py
 
-          if not files:
-              raise SystemExit("No Python files found.")
+      - name: Run scheduling model
+        working-directory: opti_schedule
+        run: python -B main.py
 
-          for file in files:
-              ast.parse(file.read_text(encoding="utf-8"), filename=str(file))
-              print(f"Syntax OK: {file}")
-
-          print(f"Validated {len(files)} Python files.")
-          PY
+      - name: Run audit
+        working-directory: opti_schedule
+        run: python -B audit_runner.py
